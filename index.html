@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="./assets/ninja.png" alt="ninja logo" srcset="" />
+        <h1>Typing Ninja</h1>
+      </header>
+
+      <div id="displaystats">
+        <div id="info"></div>
+        <div id="corword">
+          accuracy: <span class="wa">0</span> words,
+          <span class="la">0</span> letters
+        </div>
+        <div id="buttons">
+          <button id="newgamebtn">New Game</button>
+        </div>
+      </div>
+
+      <div id="game" tabindex="0">
+        <div id="words"></div>
+        <!-- <div id="cursor"></div> -->
+        <div id="focus-error">Click here to focus and start typing</div>
+      </div>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>

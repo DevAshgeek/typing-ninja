@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --bg-color: #1e1e1e;
+  --text-primary: #f0f0f0;
+  --text-secondary: #888;
+  --primary-color: #ffdd44;
+  --error-color: #f55;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+}
+
+main {
+  width: 90%;
+  max-width: 800px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+#displaystats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#buttons {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+#info {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+#buttons button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 0;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#buttons button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+div#game {
+  position: relative;
+  margin: 20px 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+div#game:focus {
+  outline: none;
+}
+
+div#words {
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-size: 1.2rem;
+  word-spacing: 0.3rem;
+  text-align: left;
+}
+
+.wordspara {
+  filter: blur(3px);
+  transition: filter 0.3s ease;
+}
+
+#game:focus .wordspara {
+  filter: blur(0);
+}
+
+#focus-error {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+#game:focus #focus-error {
+  display: none;
+}
+
+.letter.correct {
+  color: var(--text-primary);
+}
+
+.letter.incorrect {
+  color: var(--error-color);
+}
+
+.letter.blank.incorrect {
+  background-color: rgba(255, 85, 85, 0.2);
+}
+
+.letter.blank.correct {
+  background-color: var(--bg-color);
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    border-left-color: transparent;
+  }
+  50% {
+    border-left-color: var(--primary-color);
+  }
+}
+
+.letter.current {
+  border-left: 0;
+}
+
+#game:focus .letter.current {
+  border-left: 2px solid var(--primary-color);
+  animation: blink 0.5s infinite;
+}
+
+#game.over #wordspara {
+  opacity: 0.5;
+  filter: blur(0);
+}
+
+#game.over .letter.current {
+  border: none;
+}
+
+#game.over #focus-error {
+  display: none;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  #info {
+    font-size: 1.2rem;
+  }
+
+  #buttons button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  div#words {
+    font-size: 1rem;
+    word-spacing: 0.2rem;
+  }
+
+  #focus-error {
+    font-size: 1rem;
+  }
+}
