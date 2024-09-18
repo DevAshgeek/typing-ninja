@@ -222,7 +222,7 @@ function focusKeyboard() {
 // Ensure game is not over before focusing on hidden input
 document.getElementById("game").addEventListener('touchstart', (e) => {
     e.preventDefault();
-    focusKeyboard();
+    // focusKeyboard();
      handleEvent({ key: ' ' });  
     if (!document.querySelector("#game.over")) {
         focusKeyboard();
